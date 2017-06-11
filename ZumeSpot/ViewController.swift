@@ -8,6 +8,7 @@ import Accounts
 import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
+import FirebaseAuth
 
 
 
@@ -136,53 +137,44 @@ class ViewController: UIViewController,CLLocationManagerDelegate,NSURLConnection
     
     @IBAction func facebookAction(_ sender: UIButton) {
         
-        let loginManager : FBSDKLoginManager = FBSDKLoginManager()  	
-        
-        loginManager.logIn(withReadPermissions: ["email","user_posts"]) { (result, error) -> Void in
+        FBSDKLoginManager().logIn(withReadPermissions: ["email"], from: self) { (result, err) in
+            if err != nil {
+                print("Custom FB Login failed:", Error.self)
+                return
+            }
+
+            self.addUser()
             
-            if (error != nil)
-            {
-                print("error \(error?.localizedDescription)")
-            }
-            else if (result?.isCancelled)!
-            {
-                NSLog("Cancelled");
-            }
-            else
-            {
-                if ((FBSDKAccessToken.current()) != nil)
-                {
-                    self.backviewofactivity.isHidden = false
-                    
-                    ActivityIndicator.current().show()
-                    
-                    FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
-                        
-                        if (error == nil)
-                        {
-                            
-                            let obj = self.storyboard!.instantiateViewController(withIdentifier: "gridvc") as! GridVC
-                            self.navigationController?.pushViewController(obj, animated: true)
-                            
-                            self.backviewofactivity.isHidden = false
-                            
-                            ActivityIndicator.current().hide()
-                        } else {
-                            
-                            self.backviewofactivity.isHidden = true
-                            
-                            ActivityIndicator.current().hide()
-                        }
-                        
-                    })
-                }
-                
-                NSLog("Logged in");
-                
-            }
+            if ((FBSDKAccessToken.current()) != nil)
+                            {
+                                self.backviewofactivity.isHidden = false
             
-        }
+                                ActivityIndicator.current().show()
+            
+                                FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
+            
+                                    if (error == nil)
+                                    {
+            
+                                        let obj = self.storyboard!.instantiateViewController(withIdentifier: "gridvc") as! GridVC
+                                        self.navigationController?.pushViewController(obj, animated: true)
+            
+                                        self.backviewofactivity.isHidden = false
+            
+                                        ActivityIndicator.current().hide()
+                                    } else {
+            
+                                        self.backviewofactivity.isHidden = true
+                                        
+                                        ActivityIndicator.current().hide()
+                                    }
+                                    
+                            })
+                    }
+            }
+
     }
+    
     
     @IBAction func twitteraction(_ sender: AnyObject)
     {
@@ -209,5 +201,30 @@ class ViewController: UIViewController,CLLocationManagerDelegate,NSURLConnection
         
         
     }
+    
+    func addUser() {
+        let accessToken = FBSDKAccessToken.current()
+        guard let accessTokenString = accessToken?.tokenString else { return }
+        
+        let credentials = FacebookAuthProvider.credential(withAccessToken: accessTokenString)
+        Auth.auth().signIn(with: credentials, completion: { (user, error) in
+            if error != nil {
+                print("Something went wrong with our FB user: ", error ?? "")
+                return
+            }
+            
+            print("Successfully logged in with our user: ", user ?? "")
+        })
+        
+        FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start { (connection, result, err) in
+            
+            if err != nil {
+                print("Failed to start graph request:", err ?? "")
+                return
+            }
+            print(result ?? "")
+        }
+    }
+
     
 }
