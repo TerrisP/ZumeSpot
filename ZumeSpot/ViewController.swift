@@ -1,16 +1,13 @@
-//
-//  ViewController.swift
-//  ZumeSpot
-//
-//  Created by mrinal khullar on 8/22/16.
-//  Copyright © 2016 mrinal khullar. All rights reserved.
-//
+
 
 import UIKit
 import CoreLocation
 import MapKit
 import Foundation
 import Accounts
+import FBSDKCoreKit
+import FBSDKLoginKit
+import Firebase
 
 
 
@@ -139,7 +136,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate,NSURLConnection
     
     @IBAction func facebookAction(_ sender: UIButton) {
         
-        let loginManager : FBSDKLoginManager = FBSDKLoginManager()
+        let loginManager : FBSDKLoginManager = FBSDKLoginManager()  	
         
         loginManager.logIn(withReadPermissions: ["email","user_posts"]) { (result, error) -> Void in
             

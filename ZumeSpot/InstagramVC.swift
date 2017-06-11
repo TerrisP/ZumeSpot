@@ -19,7 +19,7 @@ class InstagramVC: UIViewController, UIWebViewDelegate{
     var kAuthenticationURL="oauth/authorize/?client_id=%@&redirect_uri=%@&response_type=token&scope=likes+comments+basic"
     var kClientID = "42a1a7203338418d8c533df07a78737f"
     //  var kRedirectURI="http://dev1.businessprodemo.com/Slipperyslickproductions/php/"
-    var kRedirectURI="http://www.brihaspatitech.com"
+    var kRedirectURI=""
     var kAccessToken="access_token"
     var typeOfAuthentication = ""
     
@@ -161,7 +161,7 @@ class InstagramVC: UIViewController, UIWebViewDelegate{
         // var response: NSURLResponse? = nil
         //var responseData = try! NSURLConnection.sendSynchronousRequest(requestData, returningResponse: response)!
         var urldata=Data()
-        var requestError: NSError? = nil
+        var _: NSError? = nil
         let response : AutoreleasingUnsafeMutablePointer<URLResponse?>? = nil
         do{
             let urlData = try NSURLConnection.sendSynchronousRequest(requestData as URLRequest, returning: response)

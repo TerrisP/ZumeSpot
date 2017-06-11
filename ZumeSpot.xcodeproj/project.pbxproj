@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15223661E882255C97CD8CF1 /* Pods_ZumeSpot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC37A0068A1FFC15A52A906F /* Pods_ZumeSpot.framework */; };
+		95F5209F1EEDA99C0036D4A2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95F5209E1EEDA99C0036D4A2 /* GoogleService-Info.plist */; };
 		E272CCFA1E827B2100DA59F8 /* TwitterBearerTokenClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E272CCF91E827B2100DA59F8 /* TwitterBearerTokenClass.m */; };
 		E2E827CB1E8BBCA800C8C3D6 /* ActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E827CA1E8BBCA800C8C3D6 /* ActivityIndicator.m */; };
+		E6208BBC65A1214EEE37ED7F /* Pods_ZumeSpot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFEC29B287ABBD3DFFA55F4C /* Pods_ZumeSpot.framework */; };
 		FF11B5011D6B2C74002460F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF11B5001D6B2C74002460F1 /* AppDelegate.swift */; };
 		FF11B5031D6B2C74002460F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF11B5021D6B2C74002460F1 /* ViewController.swift */; };
 		FF11B5061D6B2C74002460F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF11B5041D6B2C74002460F1 /* Main.storyboard */; };
@@ -54,6 +57,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13FA5E34C65D017C177085EC /* Pods-ZumeSpot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZumeSpot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZumeSpot/Pods-ZumeSpot.debug.xcconfig"; sourceTree = "<group>"; };
+		370B831BA80214D832808F4D /* Pods-ZumeSpot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZumeSpot.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZumeSpot/Pods-ZumeSpot.release.xcconfig"; sourceTree = "<group>"; };
+		95F5209E1EEDA99C0036D4A2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BC37A0068A1FFC15A52A906F /* Pods_ZumeSpot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZumeSpot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFEC29B287ABBD3DFFA55F4C /* Pods_ZumeSpot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZumeSpot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E272CCF81E827B2100DA59F8 /* TwitterBearerTokenClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterBearerTokenClass.h; sourceTree = "<group>"; };
 		E272CCF91E827B2100DA59F8 /* TwitterBearerTokenClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterBearerTokenClass.m; sourceTree = "<group>"; };
 		E2E827C91E8BBCA800C8C3D6 /* ActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityIndicator.h; sourceTree = "<group>"; };
@@ -140,12 +148,50 @@
 				FFFBEF121D6D9EB200DF03E4 /* Foundation.framework in Frameworks */,
 				FFFBEF101D6D911600DF03E4 /* MapKit.framework in Frameworks */,
 				FFFBEF0E1D6D90D600DF03E4 /* CoreLocation.framework in Frameworks */,
+				15223661E882255C97CD8CF1 /* Pods_ZumeSpot.framework in Frameworks */,
+				E6208BBC65A1214EEE37ED7F /* Pods_ZumeSpot.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9095A0690012D2BDD814D3C9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BC37A0068A1FFC15A52A906F /* Pods_ZumeSpot.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		95BBDAE91EEDAB8600A0A652 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FFB73BD11DABD3DD001A3C71 /* Accounts.framework */,
+				FFB73BCF1DABD3CD001A3C71 /* Social.framework */,
+				FFB73BCD1DABD3C1001A3C71 /* Twitter.framework */,
+				FFDCA40F1D780E7500DB5812 /* OpenAL.framework */,
+				FFCA46911D76E92500811E9A /* SystemConfiguration.framework */,
+				FFFBEF261D6DB34A00DF03E4 /* libsqlite3.0.tbd */,
+				FFFBEF111D6D9EB200DF03E4 /* Foundation.framework */,
+				FFFBEF0F1D6D911600DF03E4 /* MapKit.framework */,
+				FFFBEF0D1D6D90D600DF03E4 /* CoreLocation.framework */,
+				FFD706F21D75D8E900210B7E /* FBSDKCoreKit.framework */,
+				FFD706F41D75D8FE00210B7E /* FBSDKLoginKit.framework */,
+				BFEC29B287ABBD3DFFA55F4C /* Pods_ZumeSpot.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A8833C2B65453E7812774081 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				13FA5E34C65D017C177085EC /* Pods-ZumeSpot.debug.xcconfig */,
+				370B831BA80214D832808F4D /* Pods-ZumeSpot.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E2BB9B3E1E9CDCF000FE6BCC /* CHTCollectionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,19 +273,11 @@
 		FF11B4F41D6B2C73002460F1 = {
 			isa = PBXGroup;
 			children = (
-				FFB73BD11DABD3DD001A3C71 /* Accounts.framework */,
-				FFB73BCF1DABD3CD001A3C71 /* Social.framework */,
-				FFB73BCD1DABD3C1001A3C71 /* Twitter.framework */,
-				FFDCA40F1D780E7500DB5812 /* OpenAL.framework */,
-				FFCA46911D76E92500811E9A /* SystemConfiguration.framework */,
-				FFFBEF261D6DB34A00DF03E4 /* libsqlite3.0.tbd */,
-				FFFBEF111D6D9EB200DF03E4 /* Foundation.framework */,
-				FFFBEF0F1D6D911600DF03E4 /* MapKit.framework */,
-				FFFBEF0D1D6D90D600DF03E4 /* CoreLocation.framework */,
-				FFD706F21D75D8E900210B7E /* FBSDKCoreKit.framework */,
-				FFD706F41D75D8FE00210B7E /* FBSDKLoginKit.framework */,
+				95BBDAE91EEDAB8600A0A652 /* Frameworks */,
 				FF11B4FF1D6B2C74002460F1 /* ZumeSpot */,
 				FF11B4FE1D6B2C73002460F1 /* Products */,
+				A8833C2B65453E7812774081 /* Pods */,
+				9095A0690012D2BDD814D3C9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -266,6 +304,7 @@
 				FF11B5041D6B2C74002460F1 /* Main.storyboard */,
 				FF11B5071D6B2C74002460F1 /* Assets.xcassets */,
 				FF11B5091D6B2C74002460F1 /* LaunchScreen.storyboard */,
+				95F5209E1EEDA99C0036D4A2 /* GoogleService-Info.plist */,
 				FF11B50C1D6B2C74002460F1 /* Info.plist */,
 				FFCA468A1D76E8FF00811E9A /* FHSTwitterEngine */,
 				FFB73B9E1DABD2AF001A3C71 /* STTwitter */,
@@ -355,9 +394,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FF11B50F1D6B2C74002460F1 /* Build configuration list for PBXNativeTarget "ZumeSpot" */;
 			buildPhases = (
+				5E4A5B5587C5EA4FC7E696AA /* [CP] Check Pods Manifest.lock */,
 				FF11B4F91D6B2C73002460F1 /* Sources */,
 				FF11B4FA1D6B2C73002460F1 /* Frameworks */,
 				FF11B4FB1D6B2C73002460F1 /* Resources */,
+				E6888E631A48621183A9CEDD /* [CP] Embed Pods Frameworks */,
+				1BA9F4A19BF8E129352C624A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -380,7 +422,7 @@
 				TargetAttributes = {
 					FF11B4FC1D6B2C73002460F1 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = X75J9LQ674;
+						DevelopmentTeam = B78FHSVH9J;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
@@ -414,10 +456,59 @@
 				FFE259CD1D86D18E0039801E /* new doc.json in Resources */,
 				FF11B5081D6B2C74002460F1 /* Assets.xcassets in Resources */,
 				FF11B5061D6B2C74002460F1 /* Main.storyboard in Resources */,
+				95F5209F1EEDA99C0036D4A2 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1BA9F4A19BF8E129352C624A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZumeSpot/Pods-ZumeSpot-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E4A5B5587C5EA4FC7E696AA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E6888E631A48621183A9CEDD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZumeSpot/Pods-ZumeSpot-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FF11B4F91D6B2C73002460F1 /* Sources */ = {
@@ -571,12 +662,13 @@
 		};
 		FF11B5101D6B2C74002460F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13FA5E34C65D017C177085EC /* Pods-ZumeSpot.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = X75J9LQ674;
+				DEVELOPMENT_TEAM = B78FHSVH9J;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -586,7 +678,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tbi.universal;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ZumeSpot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -599,12 +691,13 @@
 		};
 		FF11B5111D6B2C74002460F1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 370B831BA80214D832808F4D /* Pods-ZumeSpot.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = X75J9LQ674;
+				DEVELOPMENT_TEAM = B78FHSVH9J;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -614,7 +707,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tbi.universal;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ZumeSpot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

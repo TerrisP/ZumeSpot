@@ -9,6 +9,9 @@
 import UIKit
 import CoreLocation
 import MapKit
+import FBSDKCoreKit
+import FBSDKLoginKit
+import Foundation
 
 class compareTimestamp1
 {

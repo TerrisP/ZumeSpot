@@ -1,12 +1,9 @@
-//
-//  AppDelegate.swift
-//  ZumeSpot
-//
-//  Created by mrinal khullar on 8/22/16.
-//  Copyright © 2016 mrinal khullar. All rights reserved.
-//
 
 import UIKit
+import Firebase
+import FBSDKCoreKit
+import FBSDKShareKit
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate
@@ -23,11 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     
     var instagramvariable=0
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
-    {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool{
+        
+        
+        FirebaseApp.configure()
         
         // Override point for customization after application launch.
-        FBSDKLoginButton.classForCoder()
+        FBSDKButton.classForCoder()
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         FHSTwitterEngine.shared().permanentlySetConsumerKey("KOKRbwhZuqnTbr2AUC3ESxl2D", andSecret: "82cPIuPjpLMxrNp4nlXG0XSa3SNorbKSis9ZkQysxMfeVrszJX")
@@ -92,7 +91,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         }
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-        
     }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool

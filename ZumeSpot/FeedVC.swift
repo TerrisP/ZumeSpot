@@ -1,12 +1,9 @@
 
-//  FeedVC.swift
-//  ZumeSpot
-//
-//  Created by mrinal khullar on 8/23/16.
-//  Copyright © 2016 mrinal khullar. All rights reserved.
-//
 
 import UIKit
+import FBSDKCoreKit
+import FBSDKLoginKit
+
 // FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
 // Consider refactoring the code to use the non-optional operators.
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
