@@ -1,0 +1,652 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E272CCFA1E827B2100DA59F8 /* TwitterBearerTokenClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E272CCF91E827B2100DA59F8 /* TwitterBearerTokenClass.m */; };
+		E2E827CB1E8BBCA800C8C3D6 /* ActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E827CA1E8BBCA800C8C3D6 /* ActivityIndicator.m */; };
+		FF11B5011D6B2C74002460F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF11B5001D6B2C74002460F1 /* AppDelegate.swift */; };
+		FF11B5031D6B2C74002460F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF11B5021D6B2C74002460F1 /* ViewController.swift */; };
+		FF11B5061D6B2C74002460F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF11B5041D6B2C74002460F1 /* Main.storyboard */; };
+		FF11B5081D6B2C74002460F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF11B5071D6B2C74002460F1 /* Assets.xcassets */; };
+		FF11B50B1D6B2C74002460F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF11B5091D6B2C74002460F1 /* LaunchScreen.storyboard */; };
+		FF22765B1D8FC32000A91D94 /* collection_reusableviewCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF22765A1D8FC32000A91D94 /* collection_reusableviewCollectionReusableView.swift */; };
+		FF9C7C981D81709C0042A16F /* CHTCollectionViewWaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C7C971D81709C0042A16F /* CHTCollectionViewWaterfallLayout.swift */; };
+		FFB73BBF1DABD2AF001A3C71 /* NSDateFormatter+STTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB73BA01DABD2AF001A3C71 /* NSDateFormatter+STTwitter.m */; };
+		FFB73BC01DABD2AF001A3C71 /* NSError+STTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB73BA21DABD2AF001A3C71 /* NSError+STTwitter.m */; };
+		FFB73BC11DABD2AF001A3C71 /* NSString+STTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB73BA41DABD2AF001A3C71 /* NSString+STTwitter.m */; };
+		FFB73BC21DABD2AF001A3C71 /* STHTTPRequest+STTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB73BA61DABD2AF001A3C71 /* STHTTPRequest+STTwitter.m */; };
+		FFB73BC31DABD2AF001A3C71 /* STTwitterAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB73BA91DABD2AF001A3C71 /* STTwitterAPI.m */; };
+		FFB73BC41DABD2AF001A3C71 /* STTwitterAppOnly.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB73BAB1DABD2AF001A3C71 /* STTwitterAppOnly.m */; };
+		FFB73BC51DABD2AF001A3C71 /* STTwitterHTML.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB73BAD1DABD2AF001A3C71 /* STTwitterHTML.m */; };
+		FFB73BC61DABD2AF001A3C71 /* STTwitterOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB73BAF1DABD2AF001A3C71 /* STTwitterOAuth.m */; };
+		FFB73BC71DABD2AF001A3C71 /* STTwitterOS.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB73BB11DABD2AF001A3C71 /* STTwitterOS.m */; };
+		FFB73BC81DABD2AF001A3C71 /* STTwitterOSRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB73BB31DABD2AF001A3C71 /* STTwitterOSRequest.m */; };
+		FFB73BC91DABD2AF001A3C71 /* STTwitterStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB73BB71DABD2AF001A3C71 /* STTwitterStreamParser.m */; };
+		FFB73BCA1DABD2AF001A3C71 /* BAVPlistNode.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB73BBA1DABD2AF001A3C71 /* BAVPlistNode.m */; };
+		FFB73BCB1DABD2AF001A3C71 /* JSONSyntaxHighlight.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB73BBC1DABD2AF001A3C71 /* JSONSyntaxHighlight.m */; };
+		FFB73BCC1DABD2AF001A3C71 /* STHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB73BBE1DABD2AF001A3C71 /* STHTTPRequest.m */; };
+		FFB73BCE1DABD3C1001A3C71 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB73BCD1DABD3C1001A3C71 /* Twitter.framework */; };
+		FFB73BD01DABD3CD001A3C71 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB73BCF1DABD3CD001A3C71 /* Social.framework */; };
+		FFB73BD21DABD3DD001A3C71 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB73BD11DABD3DD001A3C71 /* Accounts.framework */; };
+		FFCA468F1D76E8FF00811E9A /* FHSStream.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCA468C1D76E8FF00811E9A /* FHSStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FFCA46901D76E8FF00811E9A /* FHSTwitterEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCA468E1D76E8FF00811E9A /* FHSTwitterEngine.m */; };
+		FFCA46921D76E92500811E9A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFCA46911D76E92500811E9A /* SystemConfiguration.framework */; };
+		FFCBAE5E1D8C035F00920598 /* new doc withFaceBookID.json in Resources */ = {isa = PBXBuildFile; fileRef = FFCBAE5D1D8C035E00920598 /* new doc withFaceBookID.json */; };
+		FFCD47781D7A992900515230 /* CollectionViewCellFeed1.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCD47771D7A992800515230 /* CollectionViewCellFeed1.swift */; };
+		FFCD477A1D7AEF4400515230 /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCD47791D7AEF4400515230 /* CollectionReusableView.swift */; };
+		FFD706F31D75D8E900210B7E /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD706F21D75D8E900210B7E /* FBSDKCoreKit.framework */; };
+		FFD706F51D75D8FE00210B7E /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD706F41D75D8FE00210B7E /* FBSDKLoginKit.framework */; };
+		FFD7F95E1D6C096E001DAD4A /* GridVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD7F95D1D6C096E001DAD4A /* GridVC.swift */; };
+		FFD7F9621D6C18A5001DAD4A /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD7F9611D6C18A5001DAD4A /* FeedVC.swift */; };
+		FFD7F9661D6C1BCE001DAD4A /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD7F9651D6C1BCE001DAD4A /* CollectionViewCell.swift */; };
+		FFDCA40E1D77F58700DB5812 /* InstagramVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDCA40D1D77F58700DB5812 /* InstagramVC.swift */; };
+		FFDCA4101D780E7500DB5812 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDCA40F1D780E7500DB5812 /* OpenAL.framework */; };
+		FFE259CD1D86D18E0039801E /* new doc.json in Resources */ = {isa = PBXBuildFile; fileRef = FFE259CC1D86D18D0039801E /* new doc.json */; };
+		FFFBEF0E1D6D90D600DF03E4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFFBEF0D1D6D90D600DF03E4 /* CoreLocation.framework */; };
+		FFFBEF101D6D911600DF03E4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFFBEF0F1D6D911600DF03E4 /* MapKit.framework */; };
+		FFFBEF121D6D9EB200DF03E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFFBEF111D6D9EB200DF03E4 /* Foundation.framework */; };
+		FFFBEF271D6DB34A00DF03E4 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FFFBEF261D6DB34A00DF03E4 /* libsqlite3.0.tbd */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E272CCF81E827B2100DA59F8 /* TwitterBearerTokenClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterBearerTokenClass.h; sourceTree = "<group>"; };
+		E272CCF91E827B2100DA59F8 /* TwitterBearerTokenClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterBearerTokenClass.m; sourceTree = "<group>"; };
+		E2E827C91E8BBCA800C8C3D6 /* ActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityIndicator.h; sourceTree = "<group>"; };
+		E2E827CA1E8BBCA800C8C3D6 /* ActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityIndicator.m; sourceTree = "<group>"; };
+		FF11B4FD1D6B2C73002460F1 /* ZumeSpot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZumeSpot.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF11B5001D6B2C74002460F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FF11B5021D6B2C74002460F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FF11B5051D6B2C74002460F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FF11B5071D6B2C74002460F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FF11B50A1D6B2C74002460F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FF11B50C1D6B2C74002460F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF22765A1D8FC32000A91D94 /* collection_reusableviewCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = collection_reusableviewCollectionReusableView.swift; sourceTree = "<group>"; };
+		FF9C7C971D81709C0042A16F /* CHTCollectionViewWaterfallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHTCollectionViewWaterfallLayout.swift; sourceTree = "<group>"; };
+		FFB73B9F1DABD2AF001A3C71 /* NSDateFormatter+STTwitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+STTwitter.h"; sourceTree = "<group>"; };
+		FFB73BA01DABD2AF001A3C71 /* NSDateFormatter+STTwitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+STTwitter.m"; sourceTree = "<group>"; };
+		FFB73BA11DABD2AF001A3C71 /* NSError+STTwitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+STTwitter.h"; sourceTree = "<group>"; };
+		FFB73BA21DABD2AF001A3C71 /* NSError+STTwitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+STTwitter.m"; sourceTree = "<group>"; };
+		FFB73BA31DABD2AF001A3C71 /* NSString+STTwitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+STTwitter.h"; sourceTree = "<group>"; };
+		FFB73BA41DABD2AF001A3C71 /* NSString+STTwitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+STTwitter.m"; sourceTree = "<group>"; };
+		FFB73BA51DABD2AF001A3C71 /* STHTTPRequest+STTwitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "STHTTPRequest+STTwitter.h"; sourceTree = "<group>"; };
+		FFB73BA61DABD2AF001A3C71 /* STHTTPRequest+STTwitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "STHTTPRequest+STTwitter.m"; sourceTree = "<group>"; };
+		FFB73BA71DABD2AF001A3C71 /* STTwitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTwitter.h; sourceTree = "<group>"; };
+		FFB73BA81DABD2AF001A3C71 /* STTwitterAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTwitterAPI.h; sourceTree = "<group>"; };
+		FFB73BA91DABD2AF001A3C71 /* STTwitterAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTwitterAPI.m; sourceTree = "<group>"; };
+		FFB73BAA1DABD2AF001A3C71 /* STTwitterAppOnly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTwitterAppOnly.h; sourceTree = "<group>"; };
+		FFB73BAB1DABD2AF001A3C71 /* STTwitterAppOnly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTwitterAppOnly.m; sourceTree = "<group>"; };
+		FFB73BAC1DABD2AF001A3C71 /* STTwitterHTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTwitterHTML.h; sourceTree = "<group>"; };
+		FFB73BAD1DABD2AF001A3C71 /* STTwitterHTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTwitterHTML.m; sourceTree = "<group>"; };
+		FFB73BAE1DABD2AF001A3C71 /* STTwitterOAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTwitterOAuth.h; sourceTree = "<group>"; };
+		FFB73BAF1DABD2AF001A3C71 /* STTwitterOAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTwitterOAuth.m; sourceTree = "<group>"; };
+		FFB73BB01DABD2AF001A3C71 /* STTwitterOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTwitterOS.h; sourceTree = "<group>"; };
+		FFB73BB11DABD2AF001A3C71 /* STTwitterOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTwitterOS.m; sourceTree = "<group>"; };
+		FFB73BB21DABD2AF001A3C71 /* STTwitterOSRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTwitterOSRequest.h; sourceTree = "<group>"; };
+		FFB73BB31DABD2AF001A3C71 /* STTwitterOSRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTwitterOSRequest.m; sourceTree = "<group>"; };
+		FFB73BB41DABD2AF001A3C71 /* STTwitterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTwitterProtocol.h; sourceTree = "<group>"; };
+		FFB73BB51DABD2AF001A3C71 /* STTwitterRequestProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTwitterRequestProtocol.h; sourceTree = "<group>"; };
+		FFB73BB61DABD2AF001A3C71 /* STTwitterStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTwitterStreamParser.h; sourceTree = "<group>"; };
+		FFB73BB71DABD2AF001A3C71 /* STTwitterStreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTwitterStreamParser.m; sourceTree = "<group>"; };
+		FFB73BB91DABD2AF001A3C71 /* BAVPlistNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAVPlistNode.h; sourceTree = "<group>"; };
+		FFB73BBA1DABD2AF001A3C71 /* BAVPlistNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAVPlistNode.m; sourceTree = "<group>"; };
+		FFB73BBB1DABD2AF001A3C71 /* JSONSyntaxHighlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONSyntaxHighlight.h; sourceTree = "<group>"; };
+		FFB73BBC1DABD2AF001A3C71 /* JSONSyntaxHighlight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONSyntaxHighlight.m; sourceTree = "<group>"; };
+		FFB73BBD1DABD2AF001A3C71 /* STHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STHTTPRequest.h; sourceTree = "<group>"; };
+		FFB73BBE1DABD2AF001A3C71 /* STHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STHTTPRequest.m; sourceTree = "<group>"; };
+		FFB73BCD1DABD3C1001A3C71 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		FFB73BCF1DABD3CD001A3C71 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		FFB73BD11DABD3DD001A3C71 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		FFCA468B1D76E8FF00811E9A /* FHSStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHSStream.h; sourceTree = "<group>"; };
+		FFCA468C1D76E8FF00811E9A /* FHSStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FHSStream.m; sourceTree = "<group>"; };
+		FFCA468D1D76E8FF00811E9A /* FHSTwitterEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHSTwitterEngine.h; sourceTree = "<group>"; };
+		FFCA468E1D76E8FF00811E9A /* FHSTwitterEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FHSTwitterEngine.m; sourceTree = "<group>"; };
+		FFCA46911D76E92500811E9A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		FFCBAE5D1D8C035E00920598 /* new doc withFaceBookID.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "new doc withFaceBookID.json"; sourceTree = "<group>"; };
+		FFCD47771D7A992800515230 /* CollectionViewCellFeed1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCellFeed1.swift; sourceTree = "<group>"; };
+		FFCD47791D7AEF4400515230 /* CollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionReusableView.swift; sourceTree = "<group>"; };
+		FFD706F21D75D8E900210B7E /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		FFD706F41D75D8FE00210B7E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		FFD7F95D1D6C096E001DAD4A /* GridVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridVC.swift; sourceTree = "<group>"; };
+		FFD7F9611D6C18A5001DAD4A /* FeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
+		FFD7F9651D6C1BCE001DAD4A /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		FFDCA40D1D77F58700DB5812 /* InstagramVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramVC.swift; sourceTree = "<group>"; };
+		FFDCA40F1D780E7500DB5812 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		FFE259CC1D86D18D0039801E /* new doc.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "new doc.json"; sourceTree = "<group>"; };
+		FFFBEF0D1D6D90D600DF03E4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		FFFBEF0F1D6D911600DF03E4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		FFFBEF111D6D9EB200DF03E4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FFFBEF261D6DB34A00DF03E4 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		FFFBEF2E1D6DB5E700DF03E4 /* ZumeSpot-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZumeSpot-Bridging-Header.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FF11B4FA1D6B2C73002460F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFB73BD21DABD3DD001A3C71 /* Accounts.framework in Frameworks */,
+				FFB73BD01DABD3CD001A3C71 /* Social.framework in Frameworks */,
+				FFB73BCE1DABD3C1001A3C71 /* Twitter.framework in Frameworks */,
+				FFDCA4101D780E7500DB5812 /* OpenAL.framework in Frameworks */,
+				FFCA46921D76E92500811E9A /* SystemConfiguration.framework in Frameworks */,
+				FFD706F31D75D8E900210B7E /* FBSDKCoreKit.framework in Frameworks */,
+				FFFBEF271D6DB34A00DF03E4 /* libsqlite3.0.tbd in Frameworks */,
+				FFD706F51D75D8FE00210B7E /* FBSDKLoginKit.framework in Frameworks */,
+				FFFBEF121D6D9EB200DF03E4 /* Foundation.framework in Frameworks */,
+				FFFBEF101D6D911600DF03E4 /* MapKit.framework in Frameworks */,
+				FFFBEF0E1D6D90D600DF03E4 /* CoreLocation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E2BB9B3E1E9CDCF000FE6BCC /* CHTCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				FFCD47791D7AEF4400515230 /* CollectionReusableView.swift */,
+				FF9C7C971D81709C0042A16F /* CHTCollectionViewWaterfallLayout.swift */,
+				FF22765A1D8FC32000A91D94 /* collection_reusableviewCollectionReusableView.swift */,
+			);
+			name = CHTCollectionView;
+			sourceTree = "<group>";
+		};
+		E2E827CC1E8BC08700C8C3D6 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				FF11B5001D6B2C74002460F1 /* AppDelegate.swift */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		E2E827CD1E8BC09B00C8C3D6 /* LoginVC */ = {
+			isa = PBXGroup;
+			children = (
+				FF11B5021D6B2C74002460F1 /* ViewController.swift */,
+			);
+			name = LoginVC;
+			sourceTree = "<group>";
+		};
+		E2E827CE1E8BC0B000C8C3D6 /* GridVC */ = {
+			isa = PBXGroup;
+			children = (
+				FFD7F95D1D6C096E001DAD4A /* GridVC.swift */,
+				FFD7F9651D6C1BCE001DAD4A /* CollectionViewCell.swift */,
+			);
+			name = GridVC;
+			sourceTree = "<group>";
+		};
+		E2E827CF1E8BC0C700C8C3D6 /* FeedVC */ = {
+			isa = PBXGroup;
+			children = (
+				FFD7F9611D6C18A5001DAD4A /* FeedVC.swift */,
+				FFCD47771D7A992800515230 /* CollectionViewCellFeed1.swift */,
+			);
+			name = FeedVC;
+			sourceTree = "<group>";
+		};
+		E2E827D11E8BC11C00C8C3D6 /* InstagramLogin */ = {
+			isa = PBXGroup;
+			children = (
+				FFDCA40D1D77F58700DB5812 /* InstagramVC.swift */,
+			);
+			name = InstagramLogin;
+			sourceTree = "<group>";
+		};
+		E2E827D31E8BC15500C8C3D6 /* Bridging Header */ = {
+			isa = PBXGroup;
+			children = (
+				FFFBEF2E1D6DB5E700DF03E4 /* ZumeSpot-Bridging-Header.h */,
+			);
+			name = "Bridging Header";
+			sourceTree = "<group>";
+		};
+		E2E827D41E8BC16D00C8C3D6 /* JsonListFile */ = {
+			isa = PBXGroup;
+			children = (
+				FFE259CC1D86D18D0039801E /* new doc.json */,
+				FFCBAE5D1D8C035E00920598 /* new doc withFaceBookID.json */,
+			);
+			name = JsonListFile;
+			sourceTree = "<group>";
+		};
+		E2E827D61E8BC3A100C8C3D6 /* TwitterBearerTokenCalss */ = {
+			isa = PBXGroup;
+			children = (
+				E272CCF81E827B2100DA59F8 /* TwitterBearerTokenClass.h */,
+				E272CCF91E827B2100DA59F8 /* TwitterBearerTokenClass.m */,
+			);
+			name = TwitterBearerTokenCalss;
+			sourceTree = "<group>";
+		};
+		FF11B4F41D6B2C73002460F1 = {
+			isa = PBXGroup;
+			children = (
+				FFB73BD11DABD3DD001A3C71 /* Accounts.framework */,
+				FFB73BCF1DABD3CD001A3C71 /* Social.framework */,
+				FFB73BCD1DABD3C1001A3C71 /* Twitter.framework */,
+				FFDCA40F1D780E7500DB5812 /* OpenAL.framework */,
+				FFCA46911D76E92500811E9A /* SystemConfiguration.framework */,
+				FFFBEF261D6DB34A00DF03E4 /* libsqlite3.0.tbd */,
+				FFFBEF111D6D9EB200DF03E4 /* Foundation.framework */,
+				FFFBEF0F1D6D911600DF03E4 /* MapKit.framework */,
+				FFFBEF0D1D6D90D600DF03E4 /* CoreLocation.framework */,
+				FFD706F21D75D8E900210B7E /* FBSDKCoreKit.framework */,
+				FFD706F41D75D8FE00210B7E /* FBSDKLoginKit.framework */,
+				FF11B4FF1D6B2C74002460F1 /* ZumeSpot */,
+				FF11B4FE1D6B2C73002460F1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FF11B4FE1D6B2C73002460F1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FF11B4FD1D6B2C73002460F1 /* ZumeSpot.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FF11B4FF1D6B2C74002460F1 /* ZumeSpot */ = {
+			isa = PBXGroup;
+			children = (
+				E2E827CC1E8BC08700C8C3D6 /* AppDelegate */,
+				E2E827CD1E8BC09B00C8C3D6 /* LoginVC */,
+				E2E827CE1E8BC0B000C8C3D6 /* GridVC */,
+				E2E827CF1E8BC0C700C8C3D6 /* FeedVC */,
+				E2E827D61E8BC3A100C8C3D6 /* TwitterBearerTokenCalss */,
+				E2E827D41E8BC16D00C8C3D6 /* JsonListFile */,
+				E2E827D31E8BC15500C8C3D6 /* Bridging Header */,
+				FFFBEF0C1D6D90B600DF03E4 /* ActivityIndicator */,
+				E2E827D11E8BC11C00C8C3D6 /* InstagramLogin */,
+				FF11B5041D6B2C74002460F1 /* Main.storyboard */,
+				FF11B5071D6B2C74002460F1 /* Assets.xcassets */,
+				FF11B5091D6B2C74002460F1 /* LaunchScreen.storyboard */,
+				FF11B50C1D6B2C74002460F1 /* Info.plist */,
+				FFCA468A1D76E8FF00811E9A /* FHSTwitterEngine */,
+				FFB73B9E1DABD2AF001A3C71 /* STTwitter */,
+				FFD44B471D6D76D900F2C92F /* Images */,
+				E2BB9B3E1E9CDCF000FE6BCC /* CHTCollectionView */,
+			);
+			path = ZumeSpot;
+			sourceTree = "<group>";
+		};
+		FFB73B9E1DABD2AF001A3C71 /* STTwitter */ = {
+			isa = PBXGroup;
+			children = (
+				FFB73B9F1DABD2AF001A3C71 /* NSDateFormatter+STTwitter.h */,
+				FFB73BA01DABD2AF001A3C71 /* NSDateFormatter+STTwitter.m */,
+				FFB73BA11DABD2AF001A3C71 /* NSError+STTwitter.h */,
+				FFB73BA21DABD2AF001A3C71 /* NSError+STTwitter.m */,
+				FFB73BA31DABD2AF001A3C71 /* NSString+STTwitter.h */,
+				FFB73BA41DABD2AF001A3C71 /* NSString+STTwitter.m */,
+				FFB73BA51DABD2AF001A3C71 /* STHTTPRequest+STTwitter.h */,
+				FFB73BA61DABD2AF001A3C71 /* STHTTPRequest+STTwitter.m */,
+				FFB73BA71DABD2AF001A3C71 /* STTwitter.h */,
+				FFB73BA81DABD2AF001A3C71 /* STTwitterAPI.h */,
+				FFB73BA91DABD2AF001A3C71 /* STTwitterAPI.m */,
+				FFB73BAA1DABD2AF001A3C71 /* STTwitterAppOnly.h */,
+				FFB73BAB1DABD2AF001A3C71 /* STTwitterAppOnly.m */,
+				FFB73BAC1DABD2AF001A3C71 /* STTwitterHTML.h */,
+				FFB73BAD1DABD2AF001A3C71 /* STTwitterHTML.m */,
+				FFB73BAE1DABD2AF001A3C71 /* STTwitterOAuth.h */,
+				FFB73BAF1DABD2AF001A3C71 /* STTwitterOAuth.m */,
+				FFB73BB01DABD2AF001A3C71 /* STTwitterOS.h */,
+				FFB73BB11DABD2AF001A3C71 /* STTwitterOS.m */,
+				FFB73BB21DABD2AF001A3C71 /* STTwitterOSRequest.h */,
+				FFB73BB31DABD2AF001A3C71 /* STTwitterOSRequest.m */,
+				FFB73BB41DABD2AF001A3C71 /* STTwitterProtocol.h */,
+				FFB73BB51DABD2AF001A3C71 /* STTwitterRequestProtocol.h */,
+				FFB73BB61DABD2AF001A3C71 /* STTwitterStreamParser.h */,
+				FFB73BB71DABD2AF001A3C71 /* STTwitterStreamParser.m */,
+				FFB73BB81DABD2AF001A3C71 /* Vendor */,
+			);
+			path = STTwitter;
+			sourceTree = "<group>";
+		};
+		FFB73BB81DABD2AF001A3C71 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				FFB73BB91DABD2AF001A3C71 /* BAVPlistNode.h */,
+				FFB73BBA1DABD2AF001A3C71 /* BAVPlistNode.m */,
+				FFB73BBB1DABD2AF001A3C71 /* JSONSyntaxHighlight.h */,
+				FFB73BBC1DABD2AF001A3C71 /* JSONSyntaxHighlight.m */,
+				FFB73BBD1DABD2AF001A3C71 /* STHTTPRequest.h */,
+				FFB73BBE1DABD2AF001A3C71 /* STHTTPRequest.m */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		FFCA468A1D76E8FF00811E9A /* FHSTwitterEngine */ = {
+			isa = PBXGroup;
+			children = (
+				FFCA468B1D76E8FF00811E9A /* FHSStream.h */,
+				FFCA468C1D76E8FF00811E9A /* FHSStream.m */,
+				FFCA468D1D76E8FF00811E9A /* FHSTwitterEngine.h */,
+				FFCA468E1D76E8FF00811E9A /* FHSTwitterEngine.m */,
+			);
+			path = FHSTwitterEngine;
+			sourceTree = "<group>";
+		};
+		FFD44B471D6D76D900F2C92F /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		FFFBEF0C1D6D90B600DF03E4 /* ActivityIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				E2E827C91E8BBCA800C8C3D6 /* ActivityIndicator.h */,
+				E2E827CA1E8BBCA800C8C3D6 /* ActivityIndicator.m */,
+			);
+			name = ActivityIndicator;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FF11B4FC1D6B2C73002460F1 /* ZumeSpot */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF11B50F1D6B2C74002460F1 /* Build configuration list for PBXNativeTarget "ZumeSpot" */;
+			buildPhases = (
+				FF11B4F91D6B2C73002460F1 /* Sources */,
+				FF11B4FA1D6B2C73002460F1 /* Frameworks */,
+				FF11B4FB1D6B2C73002460F1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZumeSpot;
+			productName = ZumeSpot;
+			productReference = FF11B4FD1D6B2C73002460F1 /* ZumeSpot.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FF11B4F51D6B2C73002460F1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "mrinal khullar";
+				TargetAttributes = {
+					FF11B4FC1D6B2C73002460F1 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = X75J9LQ674;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = FF11B4F81D6B2C73002460F1 /* Build configuration list for PBXProject "ZumeSpot" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FF11B4F41D6B2C73002460F1;
+			productRefGroup = FF11B4FE1D6B2C73002460F1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FF11B4FC1D6B2C73002460F1 /* ZumeSpot */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FF11B4FB1D6B2C73002460F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF11B50B1D6B2C74002460F1 /* LaunchScreen.storyboard in Resources */,
+				FFCBAE5E1D8C035F00920598 /* new doc withFaceBookID.json in Resources */,
+				FFE259CD1D86D18E0039801E /* new doc.json in Resources */,
+				FF11B5081D6B2C74002460F1 /* Assets.xcassets in Resources */,
+				FF11B5061D6B2C74002460F1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FF11B4F91D6B2C73002460F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFD7F9661D6C1BCE001DAD4A /* CollectionViewCell.swift in Sources */,
+				FFD7F95E1D6C096E001DAD4A /* GridVC.swift in Sources */,
+				FFB73BBF1DABD2AF001A3C71 /* NSDateFormatter+STTwitter.m in Sources */,
+				FF11B5031D6B2C74002460F1 /* ViewController.swift in Sources */,
+				FF22765B1D8FC32000A91D94 /* collection_reusableviewCollectionReusableView.swift in Sources */,
+				FFB73BC51DABD2AF001A3C71 /* STTwitterHTML.m in Sources */,
+				FFB73BC91DABD2AF001A3C71 /* STTwitterStreamParser.m in Sources */,
+				FFCD47781D7A992900515230 /* CollectionViewCellFeed1.swift in Sources */,
+				FFB73BC61DABD2AF001A3C71 /* STTwitterOAuth.m in Sources */,
+				FFDCA40E1D77F58700DB5812 /* InstagramVC.swift in Sources */,
+				FFB73BC41DABD2AF001A3C71 /* STTwitterAppOnly.m in Sources */,
+				FFB73BC71DABD2AF001A3C71 /* STTwitterOS.m in Sources */,
+				E272CCFA1E827B2100DA59F8 /* TwitterBearerTokenClass.m in Sources */,
+				FFB73BC01DABD2AF001A3C71 /* NSError+STTwitter.m in Sources */,
+				FFD7F9621D6C18A5001DAD4A /* FeedVC.swift in Sources */,
+				FFB73BC81DABD2AF001A3C71 /* STTwitterOSRequest.m in Sources */,
+				FFB73BCC1DABD2AF001A3C71 /* STHTTPRequest.m in Sources */,
+				FFB73BC31DABD2AF001A3C71 /* STTwitterAPI.m in Sources */,
+				FFB73BC11DABD2AF001A3C71 /* NSString+STTwitter.m in Sources */,
+				FFCA46901D76E8FF00811E9A /* FHSTwitterEngine.m in Sources */,
+				FFCD477A1D7AEF4400515230 /* CollectionReusableView.swift in Sources */,
+				FF11B5011D6B2C74002460F1 /* AppDelegate.swift in Sources */,
+				FFB73BCA1DABD2AF001A3C71 /* BAVPlistNode.m in Sources */,
+				FFCA468F1D76E8FF00811E9A /* FHSStream.m in Sources */,
+				FF9C7C981D81709C0042A16F /* CHTCollectionViewWaterfallLayout.swift in Sources */,
+				FFB73BC21DABD2AF001A3C71 /* STHTTPRequest+STTwitter.m in Sources */,
+				FFB73BCB1DABD2AF001A3C71 /* JSONSyntaxHighlight.m in Sources */,
+				E2E827CB1E8BBCA800C8C3D6 /* ActivityIndicator.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FF11B5041D6B2C74002460F1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF11B5051D6B2C74002460F1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FF11B5091D6B2C74002460F1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF11B50A1D6B2C74002460F1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FF11B50D1D6B2C74002460F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALID_ARCHS = "arm64 armv7 armv7s";
+			};
+			name = Debug;
+		};
+		FF11B50E1D6B2C74002460F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s";
+			};
+			name = Release;
+		};
+		FF11B5101D6B2C74002460F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = X75J9LQ674;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = ZumeSpot/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tbi.universal;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZumeSpot/ZumeSpot-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s";
+			};
+			name = Debug;
+		};
+		FF11B5111D6B2C74002460F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = X75J9LQ674;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = ZumeSpot/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tbi.universal;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZumeSpot/ZumeSpot-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FF11B4F81D6B2C73002460F1 /* Build configuration list for PBXProject "ZumeSpot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF11B50D1D6B2C74002460F1 /* Debug */,
+				FF11B50E1D6B2C74002460F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF11B50F1D6B2C74002460F1 /* Build configuration list for PBXNativeTarget "ZumeSpot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF11B5101D6B2C74002460F1 /* Debug */,
+				FF11B5111D6B2C74002460F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FF11B4F51D6B2C73002460F1 /* Project object */;
+}
