@@ -68,9 +68,10 @@ class ViewController: UIViewController,CLLocationManagerDelegate,NSURLConnection
     
     var bearerToken = String()
     
-    override func viewDidLoad()
-    {
-        
+    
+    
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         if (UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad)
@@ -169,11 +170,11 @@ class ViewController: UIViewController,CLLocationManagerDelegate,NSURLConnection
                                         ActivityIndicator.current().hide()
                                     }
                                     
-                            })
-                    }
-            }
+                        })
+                }
+        }
 
-    }
+}
     
     
     @IBAction func twitteraction(_ sender: AnyObject)
@@ -188,6 +189,8 @@ class ViewController: UIViewController,CLLocationManagerDelegate,NSURLConnection
         self .present(loginController, animated: true, completion: nil)
         
     }
+    
+    
     @IBAction func instagramaction(_ sender: AnyObject)
     {
         
@@ -196,11 +199,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate,NSURLConnection
         
     }
     
-    @IBAction func demo__action(_ sender: AnyObject)
-    {
-        
-        
-    }
+    
     
     func addUser() {
         let accessToken = FBSDKAccessToken.current()

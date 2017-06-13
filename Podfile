@@ -12,7 +12,8 @@ target 'ZumeSpot' do
   pod 'FBSDKLoginKit'
   pod 'FBSDKShareKit'
   pod 'Firebase/Auth'
-
+pod 'TwitterKit'
+pod 'TwitterCore'
 
   
 
