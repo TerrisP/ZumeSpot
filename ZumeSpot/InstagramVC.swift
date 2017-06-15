@@ -2,6 +2,9 @@
 //  InstagramVC.swift
 //  ZumeSpot
 //
+//  Created by Terris Phillips on 6/4/17.
+//  Copyright © 2017 Terris Phillips. All rights reserved.
+//
 
 
 import UIKit
@@ -18,7 +21,6 @@ class InstagramVC: UIViewController, UIWebViewDelegate{
     var kBaseURL = "https://instagram.com/"
     var kAuthenticationURL="oauth/authorize/?client_id=%@&redirect_uri=%@&response_type=token&scope=likes+comments+basic"
     var kClientID = "42a1a7203338418d8c533df07a78737f"
-    //  var kRedirectURI="http://dev1.businessprodemo.com/Slipperyslickproductions/php/"
     var kRedirectURI=""
     var kAccessToken="access_token"
     var typeOfAuthentication = ""
@@ -182,7 +184,7 @@ class InstagramVC: UIViewController, UIWebViewDelegate{
         UserDefaults.standard.setValue(authToken, forKey: "instagramtoken")
             self.navigationController?.popViewController(animated: false)
         } else {
-        print("successfully logged in with Tocken == \(authToken)")
+        print("successfully logged in with Token == \(authToken)")
         // self.dismissViewControllerAnimated(true, completion: { _ in })
         // print("permissions of instagram  \(authToken)")
         UserDefaults.standard.setValue(authToken, forKey: "instagramtoken")

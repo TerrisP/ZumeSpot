@@ -2,7 +2,10 @@
 //  ActivityIndicator.m
 //  ShareKit
 //
-//  Created by Nathan Weiner on 6/16/10.
+//  Created by Terris Phillips on 6/4/17.
+//  Copyright © 2017 Terris Phillips. All rights reserved.
+//
+
 
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
