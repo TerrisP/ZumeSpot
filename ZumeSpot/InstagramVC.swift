@@ -8,6 +8,7 @@
 
 
 import UIKit
+import FirebaseDatabase
 
 class InstagramVC: UIViewController, UIWebViewDelegate{
     
@@ -42,7 +43,7 @@ class InstagramVC: UIViewController, UIWebViewDelegate{
     }
     @IBAction func BackButton(_ sender: UIButton) {
         ActivityIndicator.current().hide()
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -119,6 +120,7 @@ class InstagramVC: UIViewController, UIWebViewDelegate{
         //            //        _completion(kError,error.description);
         //        }
         //      //  UIUtils.networkFailureMessage()
+        
         self.webViewDidFinishLoad(webView)
         
     }
@@ -175,14 +177,41 @@ class InstagramVC: UIViewController, UIWebViewDelegate{
         }
         let dict = try! JSONSerialization.jsonObject(with: urldata, options: JSONSerialization.ReadingOptions.allowFragments)
         print(dict)
-        self.handleAuth(((dict as AnyObject).value(forKey: "access_token") as! String))
         
+        //Adding data to fireBase
+        let ref = Database.database().reference()
+        var id = ""
+        if let instaDict = dict as? NSDictionary {
+            
+            //Checking each value if exist then only it add to firebase
+            if let userDict = instaDict.value(forKey: "user") as? NSDictionary {
+            if let instaId = userDict.value(forKey: "id") as? String {
+                id = "\(instaId)"
+            }
+            if let fullName = userDict.value(forKey: "full_name") as? String {
+                ref.child("Users/instaUsers/\(id)/fullName").setValue(fullName)
+            }
+            if let profilePic = userDict.value(forKey: "profile_picture") as? String {
+                ref.child("Users/instaUsers/\(id)/picture").setValue(profilePic)
+            }
+            if let uName = userDict.value(forKey: "username") as? String {
+                ref.child("Users/instaUsers/\(id)/userName").setValue(uName)
+            }
+            if let ws = userDict.value(forKey: "website") as? String {
+                ref.child("Users/instaUsers/\(id)/website").setValue(ws)
+            }
+            if let bio = userDict.value(forKey: "bio") as? String {
+                ref.child("Users/instaUsers/\(id)/bio").setValue(bio)
+            }
+        }
+        }
+        self.handleAuth(((dict as AnyObject).value(forKey: "access_token") as! String))
     }
     func handleAuth(_ authToken: String)
     {
         if(self.pushFromPostScreen == "Yes") {
         UserDefaults.standard.setValue(authToken, forKey: "instagramtoken")
-            self.navigationController?.popViewController(animated: false)
+            _ = self.navigationController?.popViewController(animated: false)
         } else {
         print("successfully logged in with Token == \(authToken)")
         // self.dismissViewControllerAnimated(true, completion: { _ in })

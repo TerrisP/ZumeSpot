@@ -12,7 +12,7 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
 import FirebaseAuth
-
+import FirebaseDatabase
 
 
 class ViewController: UIViewController,CLLocationManagerDelegate,NSURLConnectionDelegate
@@ -79,14 +79,14 @@ class ViewController: UIViewController,CLLocationManagerDelegate,NSURLConnection
         
         if (UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad)
         {
-            
             loginwithfblabel.font = loginwithfblabel.font.withSize(27)
             loginwithtwitterlabel.font=loginwithtwitterlabel.font.withSize(27)
             loginwithinstagramlabel.font = loginwithinstagramlabel.font.withSize(27)
-            
         }
         
-        
+        Auth.auth().signInAnonymously() { (user, error) in
+           print(error ?? "error")
+        }
         //BACK VIEW OF ACTIVITY INDICATOR
         
         let widthofview = self.view.frame.size.width
@@ -150,31 +150,45 @@ class ViewController: UIViewController,CLLocationManagerDelegate,NSURLConnection
             self.addUser()
             
             if ((FBSDKAccessToken.current()) != nil)
-                            {
-                                self.backviewofactivity.isHidden = false
-            
-                                ActivityIndicator.current().show()
-            
-                                FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
-            
-                                    if (error == nil)
-                                    {
-            
-                                        let obj = self.storyboard!.instantiateViewController(withIdentifier: "gridvc") as! GridVC
-                                        self.navigationController?.pushViewController(obj, animated: true)
-            
-                                        self.backviewofactivity.isHidden = false
-            
-                                        ActivityIndicator.current().hide()
-                                    } else {
-            
-                                        self.backviewofactivity.isHidden = true
-                                        
-                                        ActivityIndicator.current().hide()
-                                    }
-                                    
-                        })
-                }
+            {
+                self.backviewofactivity.isHidden = false
+                
+                ActivityIndicator.current().show()
+                
+                FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
+                    
+                    if (error == nil)
+                    {
+                        let r = result as! NSDictionary
+                        let ref = Database.database().reference()
+                        let id = "\(r.value(forKey: "id")!)"
+                        
+                        if let firstName = r.value(forKey: "first_name") as? String {
+                            ref.child("Users/fbUsers/\(id)/firstName").setValue(firstName)
+                        }
+                        if let lastName = r.value(forKey: "last_name") as? String {
+                            ref.child("Users/fbUsers/\(id)/lastName").setValue(lastName)
+                        }
+                        if let email = r.value(forKey: "email") as? String {
+                            ref.child("Users/fbUsers/\(id)/email").setValue(email)
+                        }
+                        
+                        if let picDict = r.value(forKey: "picture") as? NSDictionary {
+                            if let dataDict  = picDict.value(forKey: "data") as? NSDictionary, let url = dataDict.value(forKey: "url") as? String {
+                                ref.child("Users/fbUsers/\(id)/picture").setValue(url)
+                            }
+                        }
+                        
+                        let obj = self.storyboard!.instantiateViewController(withIdentifier: "gridvc") as! GridVC
+                        self.navigationController?.pushViewController(obj, animated: true)
+                        self.backviewofactivity.isHidden = false
+                        ActivityIndicator.current().hide()
+                    } else {
+                        self.backviewofactivity.isHidden = true
+                        ActivityIndicator.current().hide()
+                    }
+                })
+            }
         }
 
 }
@@ -182,24 +196,50 @@ class ViewController: UIViewController,CLLocationManagerDelegate,NSURLConnection
     
     @IBAction func twitteraction(_ sender: AnyObject)
     {
-        
         let loginController = FHSTwitterEngine.shared().loginController { (success) -> Void in
             
             let obj = self.storyboard!.instantiateViewController(withIdentifier: "gridvc") as! GridVC
             self.navigationController?.pushViewController(obj, animated: true)
+            let userName = (FHSTwitterEngine.shared().getUserSettings() as! NSDictionary).value(forKey: "screen_name") as! String
+            
+            if let ary = FHSTwitterEngine.shared().getListsForUser(userName, isID: false) as? NSArray{
+                if let dict = ary.object(at: 0) as? NSDictionary {
+                    var id = ""
+                    if let tId = dict.value(forKey: "id_str") as? String
+                    {
+                        id = "\(tId)"
+                    }
+                    
+                    let ref = Database.database().reference()
+                    ref.child("Users/twitterUsers/\(id)/" + USERNAME).setValue(userName)
+                    if let user = dict.value(forKey: "user") as? NSDictionary
+                    {
+                        if let name = user.value(forKey: "name") as? String {
+                            
+                            ref.child("Users/twitterUsers/\(id)/name").setValue(name)
+                            
+                        }
+                        if let backImage = user.value(forKey: "profile_background_image_url") as? String {
+                            ref.child("Users/twitterUsers/\(id)/backgroundPicture").setValue(backImage)
+                        }
+                        
+                        if let imgUrl = user.value(forKey: "profile_image_url") as? String {
+                            ref.child("Users/twitterUsers/\(id)/" + PICTURE).setValue(imgUrl)
+                        }
+                    }
+                }
+                
+            }
             
             } as UIViewController
         self .present(loginController, animated: true, completion: nil)
-        
     }
     
     
     @IBAction func instagramaction(_ sender: AnyObject)
     {
-        
         let obj = self.storyboard!.instantiateViewController(withIdentifier: "instagramvc") as! InstagramVC
         self.navigationController?.pushViewController(obj, animated: true)
-        
     }
     
     

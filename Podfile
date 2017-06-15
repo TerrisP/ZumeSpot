@@ -8,6 +8,7 @@ target 'ZumeSpot' do
   # Pods for ZumeSpot
   
   pod 'Firebase/Core'
+  pod 'Firebase/Database'
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
   pod 'FBSDKShareKit'
