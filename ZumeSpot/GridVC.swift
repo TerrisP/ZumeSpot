@@ -304,7 +304,7 @@ class GridVC: UIViewController ,UICollectionViewDataSource,UICollectionViewDeleg
         {
             
             let name = nameofhotelssorted[position1]
-            
+            print(name)
             if((dictionaryoffacebookid.object(forKey: name)) != nil && facebooknum == 1)
             {
                 for i in sorteddictarray
@@ -339,6 +339,7 @@ class GridVC: UIViewController ,UICollectionViewDataSource,UICollectionViewDeleg
                 hotelnamearr.add(name)
                 let facebookname1 = (dictionaryoffacebookid.object(forKey: name)) as! NSNumber
                 let facebookname2 = String(describing: facebookname1)
+                print(facebookname2)
                 twitterimage("",facebookid: facebookname2)
             }
                 
@@ -375,9 +376,8 @@ class GridVC: UIViewController ,UICollectionViewDataSource,UICollectionViewDeleg
                 }
                 
                 hotelnamearr.add(name)
-                
                 let twittername1 = (dictionaryoftwitterusername.object(forKey: name)) as! String
-                
+                print(twittername1)
                 twitterimage(twittername1,facebookid: "")
             }
                 
@@ -413,7 +413,50 @@ class GridVC: UIViewController ,UICollectionViewDataSource,UICollectionViewDeleg
                 hotelnamearr.add(name)
                 let instaid1 = (dictionaryofinstagramid.object(forKey: name)) as! NSNumber
                 let instaid2 = String(describing: instaid1)
-                json(instaid2 as NSString)
+                if self.accesstokenInstagram != "" {
+                    json(instaid2 as NSString)
+                } else {
+                    let ref = Database.database().reference()
+                    ref.child("Users/instaUsers/\(instaid2)/picture").observeSingleEvent(of: DataEventType.value, with: { (snap) in
+                        if let pic = snap.value, !(pic is NSNull) {
+                            
+                            //Set Profile URL
+                            let url1 = URL(string: pic as! String)
+                            
+                            let img=try? Data(contentsOf: url1!)
+                            
+                            var imageof = UIImage()
+                            
+                            if(img == nil)
+                            {
+                                imageof = UIImage(named: "NoImage")!
+                                
+                                self.imagearray1.add(imageof)
+                                
+                                self.position1 += 1
+                                self.instagramnum=1
+                                self.twitternum=1
+                                self.facebooknum=1
+                                self.check1()
+                            }
+                            else
+                            {
+                                imageof = UIImage(data: img!)!
+                                
+                                self.imagearray1.add(imageof)
+                                
+                                self.position1 += 1
+                                self.instagramnum=1
+                                self.twitternum=1
+                                self.facebooknum=1
+                                self.check1()
+                                
+                            }
+                        } else {
+                            self.json(instaid2 as NSString)
+                        }
+                    })
+                }
             }
             else
             {
