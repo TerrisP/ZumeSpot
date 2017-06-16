@@ -12,7 +12,7 @@ import MapKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 import Foundation
-
+import FirebaseDatabase
 class compareTimestamp1
 {
     var name: String
@@ -71,6 +71,7 @@ class GridVC: UIViewController ,UICollectionViewDataSource,UICollectionViewDeleg
     var dictionaryforinstagramusername = NSMutableDictionary()
     
     var nameofhotelssorted = NSMutableArray()
+    var backviewofactivity = UIView()
     
     var instagramnum = 1
     var twitternum   = 1
@@ -127,6 +128,14 @@ class GridVC: UIViewController ,UICollectionViewDataSource,UICollectionViewDeleg
         
         collection_view.collectionViewLayout=layout
         
+        //BACK VIEW OF ACTIVITY INDICATOR
+        
+        let widthofview = self.view.frame.size.width
+        let heightofview = self.view.frame.size.height
+        backviewofactivity.frame = CGRect(x: 0, y: 0, width: widthofview, height: heightofview)
+        backviewofactivity.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 254/255, alpha: 0.5)
+        self.view.addSubview(backviewofactivity)
+        self.backviewofactivity.isHidden = true
         
         for j in 0 ..< sorteddistance1.count
         {
@@ -146,12 +155,45 @@ class GridVC: UIViewController ,UICollectionViewDataSource,UICollectionViewDeleg
         
         //BUTTON OF FIRST VIEW DATA
         
-        let path: NSString = Bundle.main.path(forResource: "new doc withFaceBookID", ofType: "json")! as NSString
-        let data : Data = try! Data(contentsOf: URL(fileURLWithPath: path as String), options: NSData.ReadingOptions.dataReadingMapped)
+       // let path: NSString = Bundle.main.path(forResource: "new doc withFaceBookID", ofType: "json")! as NSString
+       // let data : Data = try! Data(contentsOf: URL(fileURLWithPath: path as String), options: NSData.ReadingOptions.dataReadingMapped)
         
-        let array: NSArray!=(try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers)) as! NSArray
+       // let array: NSArray!=(try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers)) as! NSArray
         
+        //FUNCTIONS TO CALL API'S
         
+        accesstokenInstagram = UserDefaults.standard.value(forKey: "instagramtoken") as! String
+        
+        if(self.accesstokenInstagram == "") {
+            
+        } else {
+            self.instagramAccessTokenValidity()
+        }
+        self.loadmorebutton.isHidden = true
+
+        facebookaccess()
+        fetchFireBaseData()
+    }
+    
+    func fetchFireBaseData()
+    {
+        self.backviewofactivity.isHidden = false
+        
+        ActivityIndicator.current().show()
+        let ref = Database.database().reference()
+        ref.child("new doc withFaceBookID").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+            self.backviewofactivity.isHidden = true
+            
+            ActivityIndicator.current().hide()
+           //print(snapshot.value)
+            if let jsonArray = snapshot.value as? NSArray {
+                self.setUpData(array: jsonArray)
+            }
+        })
+    }
+    
+    func setUpData(array:NSArray)
+    {
         for i in 0 ..< array.count
         {
             nameofhotels.add((array[i] as AnyObject).value(forKey: "Name") as! String)
@@ -186,9 +228,7 @@ class GridVC: UIViewController ,UICollectionViewDataSource,UICollectionViewDeleg
             
             if((array[l] as AnyObject).value(forKey: "FacebookUserId") as? Double != nullelement2)
             {
-                
                 dictionaryoffacebookid.setObject((array[l] as AnyObject).value(forKey: "FacebookUserId")!, forKey: nameofhotels[l] as! String as NSCopying)
-                
             }
             
         }
@@ -200,14 +240,13 @@ class GridVC: UIViewController ,UICollectionViewDataSource,UICollectionViewDeleg
             {
                 dictionaryforinstagramusername.setObject((array[m] as AnyObject).value(forKey: "InstagramUserName")!, forKey: nameofhotels[m] as! String as NSCopying)
             }
-            
         }
         
+        //let currentLocation:CLLocationCoordinate2D? = CLLocationCoordinate2DMake(12.45, 23.45)
         let currentLocation = CLLocationManager().location?.coordinate
         
         for i in 0 ..< self.nameofhotels.count
         {
-            
             let lati = Double(self.latitudeofhotels[i] as! NSNumber)
             let long = Double(self.longitudeofhotels[i] as! NSNumber)
             let destinationlocation=CLLocation(latitude:lati , longitude:long)
@@ -215,20 +254,15 @@ class GridVC: UIViewController ,UICollectionViewDataSource,UICollectionViewDeleg
             let staticloca=CLLocation(latitude: (currentLocation?.latitude)!, longitude: (currentLocation?.longitude)!)
             
             //let staticloca=CLLocation(latitude: 34.050977, longitude: -118.248027)
-            
             let distance=staticloca.distance(from: destinationlocation)
-            
             distanceofhotels.add(distance)
-            
         }
         
         //
         var objectsArray1 = ["\(nameofhotels[0])"]
         for i in 1 ..< nameofhotels.count
         {
-            
             objectsArray1.append(nameofhotels[i] as! String)
-            
         }
         
         var keysArray1 = [distanceofhotels[0]]
@@ -260,21 +294,7 @@ class GridVC: UIViewController ,UICollectionViewDataSource,UICollectionViewDeleg
             nameofhotelssorted.add(sortedDict[m].0)
             
         }
-        
-        //FUNCTIONS TO CALL API'S
-        
-        accesstokenInstagram = UserDefaults.standard.value(forKey: "instagramtoken") as! String
-        
-        if(self.accesstokenInstagram == "") {
-            
-        } else {
-            self.instagramAccessTokenValidity()
-        }
-        self.loadmorebutton.isHidden = true
-        
         self.check1()
-        facebookaccess()
-        
     }
     
     func check1()
@@ -284,7 +304,7 @@ class GridVC: UIViewController ,UICollectionViewDataSource,UICollectionViewDeleg
         {
             
             let name = nameofhotelssorted[position1]
-            
+            print(name)
             if((dictionaryoffacebookid.object(forKey: name)) != nil && facebooknum == 1)
             {
                 for i in sorteddictarray
@@ -319,6 +339,7 @@ class GridVC: UIViewController ,UICollectionViewDataSource,UICollectionViewDeleg
                 hotelnamearr.add(name)
                 let facebookname1 = (dictionaryoffacebookid.object(forKey: name)) as! NSNumber
                 let facebookname2 = String(describing: facebookname1)
+                print(facebookname2)
                 twitterimage("",facebookid: facebookname2)
             }
                 
@@ -355,9 +376,8 @@ class GridVC: UIViewController ,UICollectionViewDataSource,UICollectionViewDeleg
                 }
                 
                 hotelnamearr.add(name)
-                
                 let twittername1 = (dictionaryoftwitterusername.object(forKey: name)) as! String
-                
+                print(twittername1)
                 twitterimage(twittername1,facebookid: "")
             }
                 
@@ -393,7 +413,50 @@ class GridVC: UIViewController ,UICollectionViewDataSource,UICollectionViewDeleg
                 hotelnamearr.add(name)
                 let instaid1 = (dictionaryofinstagramid.object(forKey: name)) as! NSNumber
                 let instaid2 = String(describing: instaid1)
-                json(instaid2 as NSString)
+                if self.accesstokenInstagram != "" {
+                    json(instaid2 as NSString)
+                } else {
+                    let ref = Database.database().reference()
+                    ref.child("Users/instaUsers/\(instaid2)/picture").observeSingleEvent(of: DataEventType.value, with: { (snap) in
+                        if let pic = snap.value, !(pic is NSNull) {
+                            
+                            //Set Profile URL
+                            let url1 = URL(string: pic as! String)
+                            
+                            let img=try? Data(contentsOf: url1!)
+                            
+                            var imageof = UIImage()
+                            
+                            if(img == nil)
+                            {
+                                imageof = UIImage(named: "NoImage")!
+                                
+                                self.imagearray1.add(imageof)
+                                
+                                self.position1 += 1
+                                self.instagramnum=1
+                                self.twitternum=1
+                                self.facebooknum=1
+                                self.check1()
+                            }
+                            else
+                            {
+                                imageof = UIImage(data: img!)!
+                                
+                                self.imagearray1.add(imageof)
+                                
+                                self.position1 += 1
+                                self.instagramnum=1
+                                self.twitternum=1
+                                self.facebooknum=1
+                                self.check1()
+                                
+                            }
+                        } else {
+                            self.json(instaid2 as NSString)
+                        }
+                    })
+                }
             }
             else
             {
@@ -812,10 +875,8 @@ class GridVC: UIViewController ,UICollectionViewDataSource,UICollectionViewDeleg
             
             do
             {
-                
                 let respnse = try JSONSerialization.jsonObject(with: data! , options: JSONSerialization.ReadingOptions.mutableContainers) as! NSMutableDictionary
                 self.accesstokenFB = respnse.value(forKey: "access_token") as! String
-                
             }
             catch _
             {
