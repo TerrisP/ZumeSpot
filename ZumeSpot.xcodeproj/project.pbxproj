@@ -10,6 +10,10 @@
 		15223661E882255C97CD8CF1 /* Pods_ZumeSpot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC37A0068A1FFC15A52A906F /* Pods_ZumeSpot.framework */; };
 		39DAE49E1EF262D100EF4626 /* NewGoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39DAE49D1EF262D100EF4626 /* NewGoogleService-Info.plist */; };
 		39DAE4A01EF29BB900EF4626 /* FireBaseConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DAE49F1EF29BB900EF4626 /* FireBaseConstant.swift */; };
+		952406181EF5CBC700574119 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 952406171EF5CBC700574119 /* Bolts.framework */; };
+		9524061A1EF5CBCC00574119 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 952406191EF5CBCC00574119 /* FBSDKShareKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		9524061C1EF5CBD600574119 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9524061B1EF5CBD600574119 /* GoogleToolboxForMac.framework */; };
+		9524061E1EF5CBDA00574119 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9524061D1EF5CBDA00574119 /* GTMSessionFetcher.framework */; };
 		95F5209F1EEDA99C0036D4A2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95F5209E1EEDA99C0036D4A2 /* GoogleService-Info.plist */; };
 		E272CCFA1E827B2100DA59F8 /* TwitterBearerTokenClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E272CCF91E827B2100DA59F8 /* TwitterBearerTokenClass.m */; };
 		E2E827CB1E8BBCA800C8C3D6 /* ActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E827CA1E8BBCA800C8C3D6 /* ActivityIndicator.m */; };
@@ -63,6 +67,11 @@
 		370B831BA80214D832808F4D /* Pods-ZumeSpot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZumeSpot.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZumeSpot/Pods-ZumeSpot.release.xcconfig"; sourceTree = "<group>"; };
 		39DAE49D1EF262D100EF4626 /* NewGoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "NewGoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		39DAE49F1EF29BB900EF4626 /* FireBaseConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireBaseConstant.swift; sourceTree = "<group>"; };
+		952406171EF5CBC700574119 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../../Library/Developer/Xcode/DerivedData/ZumeSpot-dfrhbkjwpcrjitdhslcebqybqlim/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework"; sourceTree = "<group>"; };
+		952406191EF5CBCC00574119 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "../../../../Library/Developer/Xcode/DerivedData/ZumeSpot-dfrhbkjwpcrjitdhslcebqybqlim/Build/Products/Debug-iphonesimulator/FBSDKShareKit/FBSDKShareKit.framework"; sourceTree = "<group>"; };
+		9524061B1EF5CBD600574119 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleToolboxForMac.framework; path = "../../../../Library/Developer/Xcode/DerivedData/ZumeSpot-dfrhbkjwpcrjitdhslcebqybqlim/Build/Products/Debug-iphonesimulator/GoogleToolboxForMac/GoogleToolboxForMac.framework"; sourceTree = "<group>"; };
+		9524061D1EF5CBDA00574119 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GTMSessionFetcher.framework; path = "../../../../Library/Developer/Xcode/DerivedData/ZumeSpot-dfrhbkjwpcrjitdhslcebqybqlim/Build/Products/Debug-iphonesimulator/GTMSessionFetcher/GTMSessionFetcher.framework"; sourceTree = "<group>"; };
+		9524061F1EF5D73800574119 /* ZumeSpot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZumeSpot.entitlements; sourceTree = "<group>"; };
 		95F5209E1EEDA99C0036D4A2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BC37A0068A1FFC15A52A906F /* Pods_ZumeSpot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZumeSpot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFEC29B287ABBD3DFFA55F4C /* Pods_ZumeSpot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZumeSpot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,17 +150,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9524061A1EF5CBCC00574119 /* FBSDKShareKit.framework in Frameworks */,
+				FFD706F51D75D8FE00210B7E /* FBSDKLoginKit.framework in Frameworks */,
+				FFD706F31D75D8E900210B7E /* FBSDKCoreKit.framework in Frameworks */,
+				952406181EF5CBC700574119 /* Bolts.framework in Frameworks */,
+				FFB73BCE1DABD3C1001A3C71 /* Twitter.framework in Frameworks */,
+				FFFBEF0E1D6D90D600DF03E4 /* CoreLocation.framework in Frameworks */,
+				FFFBEF101D6D911600DF03E4 /* MapKit.framework in Frameworks */,
+				9524061E1EF5CBDA00574119 /* GTMSessionFetcher.framework in Frameworks */,
+				9524061C1EF5CBD600574119 /* GoogleToolboxForMac.framework in Frameworks */,
 				FFB73BD21DABD3DD001A3C71 /* Accounts.framework in Frameworks */,
 				FFB73BD01DABD3CD001A3C71 /* Social.framework in Frameworks */,
-				FFB73BCE1DABD3C1001A3C71 /* Twitter.framework in Frameworks */,
+				FFFBEF121D6D9EB200DF03E4 /* Foundation.framework in Frameworks */,
 				FFDCA4101D780E7500DB5812 /* OpenAL.framework in Frameworks */,
 				FFCA46921D76E92500811E9A /* SystemConfiguration.framework in Frameworks */,
-				FFD706F31D75D8E900210B7E /* FBSDKCoreKit.framework in Frameworks */,
 				FFFBEF271D6DB34A00DF03E4 /* libsqlite3.0.tbd in Frameworks */,
-				FFD706F51D75D8FE00210B7E /* FBSDKLoginKit.framework in Frameworks */,
-				FFFBEF121D6D9EB200DF03E4 /* Foundation.framework in Frameworks */,
-				FFFBEF101D6D911600DF03E4 /* MapKit.framework in Frameworks */,
-				FFFBEF0E1D6D90D600DF03E4 /* CoreLocation.framework in Frameworks */,
 				15223661E882255C97CD8CF1 /* Pods_ZumeSpot.framework in Frameworks */,
 				E6208BBC65A1214EEE37ED7F /* Pods_ZumeSpot.framework in Frameworks */,
 			);
@@ -171,6 +184,10 @@
 		95BBDAE91EEDAB8600A0A652 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9524061D1EF5CBDA00574119 /* GTMSessionFetcher.framework */,
+				9524061B1EF5CBD600574119 /* GoogleToolboxForMac.framework */,
+				952406191EF5CBCC00574119 /* FBSDKShareKit.framework */,
+				952406171EF5CBC700574119 /* Bolts.framework */,
 				FFB73BD11DABD3DD001A3C71 /* Accounts.framework */,
 				FFB73BCF1DABD3CD001A3C71 /* Social.framework */,
 				FFB73BCD1DABD3C1001A3C71 /* Twitter.framework */,
@@ -296,6 +313,7 @@
 		FF11B4FF1D6B2C74002460F1 /* ZumeSpot */ = {
 			isa = PBXGroup;
 			children = (
+				9524061F1EF5D73800574119 /* ZumeSpot.entitlements */,
 				E2E827CC1E8BC08700C8C3D6 /* AppDelegate */,
 				E2E827CD1E8BC09B00C8C3D6 /* LoginVC */,
 				E2E827CE1E8BC0B000C8C3D6 /* GridVC */,
@@ -431,6 +449,11 @@
 						DevelopmentTeam = B78FHSVH9J;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -497,7 +520,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E6888E631A48621183A9CEDD /* [CP] Embed Pods Frameworks */ = {
@@ -580,7 +603,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -629,7 +652,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -672,8 +695,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13FA5E34C65D017C177085EC /* Pods-ZumeSpot.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ZumeSpot/ZumeSpot.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = B78FHSVH9J;
@@ -692,7 +716,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ZumeSpot/ZumeSpot-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
@@ -701,8 +725,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 370B831BA80214D832808F4D /* Pods-ZumeSpot.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ZumeSpot/ZumeSpot.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = B78FHSVH9J;
@@ -721,7 +746,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ZumeSpot/ZumeSpot-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
