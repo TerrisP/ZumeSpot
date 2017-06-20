@@ -556,6 +556,7 @@ class GridVC: UIViewController ,UICollectionViewDataSource,UICollectionViewDeleg
         obj.facebookuserdict = dictionaryoffacebookid
         obj.twitteruserdict = dictionaryoftwitterusername
         obj.accesstokenofFB = self.accesstokenFB
+        obj.profileImage = cellof.image_view.image!
         obj.instagramTokenValid = self.instagramAccessTokenValid
         obj.dictionaryinstagramusername = self.dictionaryforinstagramusername
         self.navigationController?.pushViewController(obj, animated: true)
@@ -628,7 +629,7 @@ class GridVC: UIViewController ,UICollectionViewDataSource,UICollectionViewDeleg
             FHSTwitterEngine .shared() .clearAccessToken()
             
             UserDefaults.standard.setValue("", forKey:"instagramtoken")
-            
+            UserDefaults.standard.removeObject(forKey: "userUrl")
             self.navigationController?.popToRootViewController(animated: true)
         }))
         
@@ -650,6 +651,7 @@ class GridVC: UIViewController ,UICollectionViewDataSource,UICollectionViewDeleg
             if error != nil
             {
                 print(error!.localizedDescription)
+                return
             }
             
             let err:NSError?
@@ -854,6 +856,11 @@ class GridVC: UIViewController ,UICollectionViewDataSource,UICollectionViewDeleg
         }
     }
     
+    @IBAction func btnProfileTap(sender:UIButton) {
+        let profileVC = self.storyboard!.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
+        self.navigationController?.pushViewController(profileVC, animated: true)
+    }
+    
     @IBAction func demobutton(_ sender: AnyObject)
     {
         
@@ -871,6 +878,7 @@ class GridVC: UIViewController ,UICollectionViewDataSource,UICollectionViewDeleg
             if error != nil
             {
                 print(error!.localizedDescription)
+                return;
             }
             
             do
@@ -910,8 +918,7 @@ class GridVC: UIViewController ,UICollectionViewDataSource,UICollectionViewDeleg
                 let accessToken = URLString.components(separatedBy: "=").last!
                 self.accesstokenInstagram = accessToken
             }
-            
-            
+
             self.check1()
             if error != nil
             {

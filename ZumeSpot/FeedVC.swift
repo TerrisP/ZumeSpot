@@ -6,6 +6,7 @@
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
+import FirebaseDatabase
 
 // FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
 // Consider refactoring the code to use the non-optional operators.
@@ -83,7 +84,7 @@ class FeedVC: UIViewController,UICollectionViewDataSource, UICollectionViewDeleg
     @IBOutlet weak var postbutton: UIButton!
     @IBOutlet weak var posttextview: UITextView!
     @IBOutlet var systemdatelabel: UILabel!
-    
+    @IBOutlet weak var btnLike:UIButton!
     @IBOutlet var zumespoticontop: UIImageView!
     
     var placeholderstring="Write Comment"
@@ -183,7 +184,7 @@ class FeedVC: UIViewController,UICollectionViewDataSource, UICollectionViewDeleg
     
     var idsarray = NSMutableArray()
     var timeofpostarray = NSMutableArray()
-    
+    var profileImage = UIImage()
     //MARK: ViewDidLoad Method
     override func viewDidLoad()
     {
@@ -283,10 +284,13 @@ class FeedVC: UIViewController,UICollectionViewDataSource, UICollectionViewDeleg
         self.api()
         NotificationCenter.default.addObserver(self, selector: #selector(FeedVC.keyboardDidShow), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(FeedVC.keyboardDidHide), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
-        
+       self.checkAlreadyLike()
     }
+    
+    
     func api()
     {
+        
         if((facebookuserdict.object(forKey: restaurantlabelname)) != nil)
         {
             let facebookid1 = (facebookuserdict.object(forKey: restaurantlabelname)) as! NSNumber
@@ -388,7 +392,6 @@ class FeedVC: UIViewController,UICollectionViewDataSource, UICollectionViewDeleg
             if((self.dictionaryinstagramusername.object(forKey: self.restaurantlabelname)) != nil)
             {
                 self.twitterandinstagram = 3
-                
                 self.footerhidden=1
             } else {
                 ActivityIndicator.current().hide()
@@ -1164,8 +1167,7 @@ class FeedVC: UIViewController,UICollectionViewDataSource, UICollectionViewDeleg
                 }
             }
             DispatchQueue.main.async(execute: {
-                
-                
+
             })
         })
         
@@ -2647,8 +2649,9 @@ class FeedVC: UIViewController,UICollectionViewDataSource, UICollectionViewDeleg
         
         let jsonUrlPath = "https://api.instagram.com/v1/media/\(idofpost)/likes?access_token=\(self.accesstokenInstagram)"
         
+        self.likePostToFirebase(tagofpost1: tagofsender)
         let URL = Foundation.URL(string: jsonUrlPath)!
-        
+        self.removePostToFirebase(tagofPost1: tagofsender)
         guard let requestUrl = Foundation.URL(string:jsonUrlPath) else { return }
         var request = URLRequest(url:requestUrl)
         if(action == "delete") {
@@ -2777,10 +2780,13 @@ class FeedVC: UIViewController,UICollectionViewDataSource, UICollectionViewDeleg
         ActivityIndicator.current().show()
         self.backviewofactivity.isHidden=false
         
+        
         DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async(execute: {() -> Void in
             
             let idofpost1 = UserDefaults.standard.value(forKey: "idoftwitterpost") as! String
             let tagofpost1 = UserDefaults.standard.integer(forKey: "tagoftwitterpost")
+            
+           self.removePostToFirebase(tagofPost1: tagofpost1)
             FHSTwitterEngine.shared().loadAccessToken()
             let responsevalue = FHSTwitterEngine.shared().markTweet(idofpost1, asFavorite: false)
             
@@ -2826,6 +2832,7 @@ class FeedVC: UIViewController,UICollectionViewDataSource, UICollectionViewDeleg
             
             let idofpost1 = UserDefaults.standard.value(forKey: "idoftwitterpost") as! String
             let tagofpost1 = UserDefaults.standard.integer(forKey: "tagoftwitterpost")
+            self.likePostToFirebase(tagofpost1: tagofpost1)
             
             FHSTwitterEngine.shared().loadAccessToken()
             let responsevalue = FHSTwitterEngine.shared().markTweet(idofpost1, asFavorite: true)
@@ -2862,6 +2869,100 @@ class FeedVC: UIViewController,UICollectionViewDataSource, UICollectionViewDeleg
             })
         })
     }
+    
+    @IBAction func btnLike(sender:UIButton) {
+        if sender.isSelected {
+            sender.isSelected = false
+            removeLikeImagesFireBase()
+        }
+        else {
+            addLikeImagesFireBase()
+            sender.isSelected = true
+        }
+    }
+    func checkAlreadyLike() {
+        let ref = Database.database().reference()
+        if let userUrl = UserDefaults.standard.object(forKey: "userUrl") as? String {
+            let uId = userUrl.components(separatedBy: "/")[2]
+            ref.child("PostLike/" + uId + "/" + (restaurantlabelname as String).addingPercentEscapes(using: String.Encoding.utf8)!).observeSingleEvent(of: .value, with: { (snap) in
+                if let _ = snap.value, !(snap.value is NSNull) {
+                    self.btnLike.isSelected = true
+                }
+            })
+        }
+    }
+    
+    
+    func addLikeImagesFireBase() {
+        let ref = Database.database().reference()
+        if let userUrl = UserDefaults.standard.object(forKey: "userUrl") as? String {
+            let uId = userUrl.components(separatedBy: "/")[2]
+            ref.child("PostLike/" + uId + "/" + (restaurantlabelname as String).addingPercentEscapes(using: String.Encoding.utf8)!).setValue(UIImageJPEGRepresentation(profileImage, 0.5)?.base64EncodedString())
+        }
+    }
+    
+    func removeLikeImagesFireBase() {
+        let ref = Database.database().reference()
+        if let userUrl = UserDefaults.standard.object(forKey: "userUrl") as? String {
+            let uId = userUrl.components(separatedBy: "/")[2]
+            ref.child("PostLike/" + uId + "/" + (restaurantlabelname as String).addingPercentEscapes(using: String.Encoding.utf8)!).removeValue()
+        }
+    }
+    
+    func likePostToFirebase(tagofpost1:Int) {
+        
+       /* let posttext = self.details[tagofpost1].posttext
+        
+        self.details[tagofpost1].alreadyliked = "liked"
+        let likecount1 = self.details[tagofpost1].likecount
+        var likecount2:Int? = Int(likecount1)
+        likecount2 = likecount2!+1
+        
+        let likecount = String(describing: likecount2!)
+        let commentcount = self.details[tagofpost1].commentcount
+        let image = self.details[tagofpost1].image
+        let timestamp = self.details[tagofpost1].timestamp
+        let postid = self.details[tagofpost1].postid
+        //let alreadyliked = self.details[tagofpost1].alreadyliked
+        let socialmediatype = self.details[tagofpost1].socialmediatype
+        let posttextviewheight = self.details[tagofpost1].posttextviewheight
+        let cellheight = self.details[tagofpost1].cellheight
+        let hashtagpost = self.details[tagofpost1].hashtagpost
+        let imagestatus = self.details[tagofpost1].imagestatus
+        
+        
+        let ref = Database.database().reference()
+        if let userUrl = UserDefaults.standard.object(forKey: "userUrl") as? String {
+            let uId = userUrl.components(separatedBy: "/")[2]
+            ref.child("PostLike/" + uId + "/" + postid).setValue(["posttext":posttext,
+                                                                  "likecount":likecount,
+                                                                  "commentcount":commentcount,
+                                                                  "image": UIImageJPEGRepresentation(image, 0.5)?.base64EncodedString() ?? "",
+                                                                  "timestamp":timestamp,
+                                                                  "postid":postid,
+                                                                  "alreadyliked":"liked",
+                                                                  "socialmediatype":socialmediatype,
+                                                                  "posttextviewheight":posttextviewheight,
+                                                                  "cellheight":cellheight,
+                                                                  "hashtagpost":hashtagpost,
+                                                                  "imagestatus":imagestatus
+                ])
+        }*/
+    }
+    
+    func removePostToFirebase(tagofPost1:Int) {
+        
+       /* let postid = self.details[tagofPost1].postid
+        
+        //Firebase to delete post
+        let ref = Database.database().reference()
+        if let userUrl = UserDefaults.standard.object(forKey: "userUrl") as? String {
+            let uId = userUrl.components(separatedBy: "/")[2]
+            ref.child("PostLike/" + uId + "/" + postid).removeValue()
+        }
+*/
+    }
+    
     func retweettwitterpost(_ idof:String,sendertag:Int) {
         
         ActivityIndicator.current().show()
@@ -2872,6 +2973,8 @@ class FeedVC: UIViewController,UICollectionViewDataSource, UICollectionViewDeleg
             
             let idofpost1 = UserDefaults.standard.value(forKey: "idoftwitterpost") as! String
             let tagofpost1 = UserDefaults.standard.integer(forKey: "tagoftwitterpost")
+            
+            
             
             FHSTwitterEngine.shared().loadAccessToken()
             let responsevalue = FHSTwitterEngine.shared().postTweet(self.messagetopost, inReplyTo: idof)
@@ -2932,30 +3035,52 @@ class FeedVC: UIViewController,UICollectionViewDataSource, UICollectionViewDeleg
         }
         else if(self.details[sender.tag].socialmediatype == "facebook")
         {
+            
+            print(sender.tag)
+            let valuefromalready = self.details[sender.tag].alreadyliked
+            if(valuefromalready == "liked") {
+                self.details[sender.tag].alreadyliked = ""
+                let likecount1 = self.details[sender.tag].likecount
+                var likecount2:Int? = Int(likecount1)
+                likecount2 = likecount2!-1
+                self.details[sender.tag].likecount = String(describing: likecount2!)
+                self.removePostToFirebase(tagofPost1: sender.tag)
+                
+            } else {
+                
+                self.likePostToFirebase(tagofpost1: sender.tag)
+                self.details[sender.tag].alreadyliked = "liked"
+                let likecount1 = self.details[sender.tag].likecount
+                var likecount2:Int? = Int(likecount1)
+                likecount2 = likecount2!+1
+                self.details[sender.tag].likecount = String(describing: likecount2!)
+            }
+            self.collection_view.reloadData()
             /*
-             if(FBSDKAccessToken.currentAccessToken() == nil)
+            
+             if(FBSDKAccessToken.current().tokenString == nil)
              {
-             let alert = UIAlertController(title: "Alert", message: "Please Login with Facebook to Perform actions on Feeds", preferredStyle: UIAlertControllerStyle.Alert)
-             let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+             let alert = UIAlertController(title: "Alert", message: "Please Login with Facebook to Perform actions on Feeds", preferredStyle: UIAlertControllerStyle.alert)
+             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
              
              }
-             let okAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+             let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
              
              let loginManager : FBSDKLoginManager = FBSDKLoginManager()
              
-             loginManager.logInWithReadPermissions(["email","user_posts"]) { (result, error) -> Void in
+             loginManager.logIn(withReadPermissions: ["email","user_posts"]) { (result, error) -> Void in
              
              if (error != nil)
              {
              //print("error")
              }
-             else if (result.isCancelled)
+             else if (result?.isCancelled)!
              {
              NSLog("Cancelled");
              }
              else
              {
-             if ((FBSDKAccessToken.currentAccessToken()) != nil)
+             if ((FBSDKAccessToken.current().tokenString) != nil)
              {
              FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).startWithCompletionHandler({ (connection, result, error) -> Void in
              //print(FBSDKAccessToken.currentAccessToken().permissions)
@@ -3101,6 +3226,7 @@ class FeedVC: UIViewController,UICollectionViewDataSource, UICollectionViewDeleg
                     UserDefaults.standard.setValue(idofpost2, forKey: "idoftwitterpost")
                     UserDefaults.standard.set(sender.tag, forKey: "tagoftwitterpost")
                     self.likeTwitterPost()
+                    
                     
                 }
                 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		15223661E882255C97CD8CF1 /* Pods_ZumeSpot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC37A0068A1FFC15A52A906F /* Pods_ZumeSpot.framework */; };
+		398407C71EF8E1EC001C0287 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398407C61EF8E1EC001C0287 /* ProfileVC.swift */; };
 		39DAE49E1EF262D100EF4626 /* NewGoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39DAE49D1EF262D100EF4626 /* NewGoogleService-Info.plist */; };
 		39DAE4A01EF29BB900EF4626 /* FireBaseConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DAE49F1EF29BB900EF4626 /* FireBaseConstant.swift */; };
 		952406181EF5CBC700574119 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 952406171EF5CBC700574119 /* Bolts.framework */; };
@@ -65,6 +66,7 @@
 /* Begin PBXFileReference section */
 		13FA5E34C65D017C177085EC /* Pods-ZumeSpot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZumeSpot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZumeSpot/Pods-ZumeSpot.debug.xcconfig"; sourceTree = "<group>"; };
 		370B831BA80214D832808F4D /* Pods-ZumeSpot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZumeSpot.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZumeSpot/Pods-ZumeSpot.release.xcconfig"; sourceTree = "<group>"; };
+		398407C61EF8E1EC001C0287 /* ProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		39DAE49D1EF262D100EF4626 /* NewGoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "NewGoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		39DAE49F1EF29BB900EF4626 /* FireBaseConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireBaseConstant.swift; sourceTree = "<group>"; };
 		952406171EF5CBC700574119 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../../Library/Developer/Xcode/DerivedData/ZumeSpot-dfrhbkjwpcrjitdhslcebqybqlim/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework"; sourceTree = "<group>"; };
@@ -173,6 +175,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		398407C81EF8E1F4001C0287 /* ProfileVC */ = {
+			isa = PBXGroup;
+			children = (
+				398407C61EF8E1EC001C0287 /* ProfileVC.swift */,
+			);
+			name = ProfileVC;
+			sourceTree = "<group>";
+		};
 		9095A0690012D2BDD814D3C9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,6 +332,7 @@
 				E2E827D41E8BC16D00C8C3D6 /* JsonListFile */,
 				E2E827D31E8BC15500C8C3D6 /* Bridging Header */,
 				FFFBEF0C1D6D90B600DF03E4 /* ActivityIndicator */,
+				398407C81EF8E1F4001C0287 /* ProfileVC */,
 				E2E827D11E8BC11C00C8C3D6 /* InstagramLogin */,
 				FF11B5041D6B2C74002460F1 /* Main.storyboard */,
 				FF11B5071D6B2C74002460F1 /* Assets.xcassets */,
@@ -545,6 +556,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				398407C71EF8E1EC001C0287 /* ProfileVC.swift in Sources */,
 				FFD7F9661D6C1BCE001DAD4A /* CollectionViewCell.swift in Sources */,
 				FFD7F95E1D6C096E001DAD4A /* GridVC.swift in Sources */,
 				FFB73BBF1DABD2AF001A3C71 /* NSDateFormatter+STTwitter.m in Sources */,

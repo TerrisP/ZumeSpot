@@ -188,6 +188,7 @@ class InstagramVC: UIViewController, UIWebViewDelegate{
             if let instaId = userDict.value(forKey: "id") as? String {
                 id = "\(instaId)"
             }
+            UserDefaults.standard.set("Users/instaUsers/\(id)", forKey: "userUrl")
             if let fullName = userDict.value(forKey: "full_name") as? String {
                 ref.child("Users/instaUsers/\(id)/fullName").setValue(fullName)
             }

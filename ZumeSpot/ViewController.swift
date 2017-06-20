@@ -162,9 +162,13 @@ class ViewController: UIViewController,CLLocationManagerDelegate,NSURLConnection
                         let r = result as! NSDictionary
                         let ref = Database.database().reference()
                         let id = "\(r.value(forKey: "id")!)"
-                        
+                        UserDefaults.standard.set("Users/fbUsers/\(id)", forKey: "userUrl")
                         if let firstName = r.value(forKey: "first_name") as? String {
                             ref.child("Users/fbUsers/\(id)/firstName").setValue(firstName)
+                        }
+                        
+                        if let firstName = r.value(forKey: "name") as? String {
+                            ref.child("Users/fbUsers/\(id)/fullName").setValue(firstName)
                         }
                         if let lastName = r.value(forKey: "last_name") as? String {
                             ref.child("Users/fbUsers/\(id)/lastName").setValue(lastName)
@@ -211,12 +215,13 @@ class ViewController: UIViewController,CLLocationManagerDelegate,NSURLConnection
                     }
                     
                     let ref = Database.database().reference()
+                    UserDefaults.standard.set("Users/twitterUsers/\(id)", forKey: "userUrl")
                     ref.child("Users/twitterUsers/\(id)/" + USERNAME).setValue(userName)
                     if let user = dict.value(forKey: "user") as? NSDictionary
                     {
                         if let name = user.value(forKey: "name") as? String {
                             
-                            ref.child("Users/twitterUsers/\(id)/name").setValue(name)
+                            ref.child("Users/twitterUsers/\(id)/fullName").setValue(name)
                             
                         }
                         if let backImage = user.value(forKey: "profile_background_image_url") as? String {
